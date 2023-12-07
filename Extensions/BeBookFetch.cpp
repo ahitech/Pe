@@ -26,7 +26,7 @@ FetchQuery(query_op op, const char* selection, vector<BString>& results,
 			bool caseSensitive = false)
 {
 	BQuery query;
-
+/*
 	query.PushAttr("BEOS:TYPE");
 	query.PushString("application/x-vnd.Be-doc_bookmark");
 	query.PushOp(B_EQ);
@@ -34,6 +34,10 @@ FetchQuery(query_op op, const char* selection, vector<BString>& results,
 	query.PushString(selection, caseSensitive);
 	query.PushOp(op);
 	query.PushOp(B_AND);
+*/
+	query.PushAttr("name");
+	query.PushString(selection);
+	query.PushOp(B_CONTAINS);
 
 	BVolume vol;
 	BVolumeRoster roster;
